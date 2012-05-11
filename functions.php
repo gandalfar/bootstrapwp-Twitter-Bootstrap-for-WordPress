@@ -82,6 +82,7 @@ add_filter( 'wp_page_menu_args', 'bootstrapwp_page_menu_args' );
 // Registering Widget Sections
 ################################################################################
 
+if ( ! function_exists( 'bootstrapwp_widgets_init' ) ):
 function bootstrapwp_widgets_init() {
   register_sidebar( array(
     'name' => 'Page Sidebar',
@@ -142,7 +143,7 @@ function bootstrapwp_widgets_init() {
   ));
 }
 add_action( 'init', 'bootstrapwp_widgets_init' );
-
+endif;
 
 
 function bootstrapwp_theme_setup() {
@@ -363,6 +364,7 @@ add_filter( 'attachment_link', 'bootstrapwp_enhanced_image_navigation' );
 // Grabbing the First Image in Posts
 ################################################################################
 
+if ( ! function_exists( 'catch_that_image' ) ) :
 function catch_that_image() {
   global $post, $posts;
   $first_img = '';
@@ -383,11 +385,12 @@ function catch_that_image() {
 
   return $new_img_tag;
   }
+endif;
 
 /**
  * Adding Breadcrumbs
  */
-
+if ( ! function_exists( 'bootstrapwp_breadcrumbs' ) ) :
  function bootstrapwp_breadcrumbs() {
 
   $delimiter = '<span class="divider">/</span>';
@@ -487,6 +490,7 @@ function catch_that_image() {
 
   }
 } // end bootstrapwp_breadcrumbs()
+endif;
 
 
 /**
