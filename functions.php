@@ -86,6 +86,8 @@ add_filter( 'wp_page_menu_args', 'bootstrapwp_page_menu_args' );
 | Registering Widget Sections
 | -------------------------------------------------------------------
 | */
+
+if ( ! function_exists( 'bootstrapwp_widgets_init' ) ):
 function bootstrapwp_widgets_init() {
   register_sidebar( array(
     'name' => 'Page Sidebar',
@@ -146,6 +148,7 @@ function bootstrapwp_widgets_init() {
   ));
 }
 add_action( 'init', 'bootstrapwp_widgets_init' );
+endif;
 
 
 
@@ -398,6 +401,7 @@ add_action('future_to_publish', 'bootstrapwp_autoset_featured_img');
 | -------------------------------------------------------------------
 |
 | */
+if ( ! function_exists( 'bootstrapwp_breadcrumbs' ) ) :
  function bootstrapwp_breadcrumbs() {
 
   $delimiter = '<span class="divider">/</span>';
@@ -497,7 +501,7 @@ add_action('future_to_publish', 'bootstrapwp_autoset_featured_img');
 
   }
 } // end bootstrapwp_breadcrumbs()
-
+endif;
 
 /**
  * This theme was built with PHP, Semantic HTML, CSS, love, and a bootstrap.
